@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#147d69">
+  <title>Safe Haven | Find Nearby Shelter</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#home" aria-label="Safe Haven home"><span class="brand-icon">⌂</span><span>Safe Haven</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+  <nav id="mainNav"><a href="#home">Home</a><a href="#find">Find shelters</a><a href="#resources">Resources</a><a href="#help">Emergency help</a></nav>
+  <div class="header-actions"><button class="my-bookings-btn" id="myBookingsBtn" type="button">My bookings <span id="bookingCount">0</span></button><a class="header-cta" href="#find">Find a safe place <span>↗</span></a></div>
+</header>
+<main>
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="pulse"></span> SUPPORT WHEN YOU NEED IT MOST</div>
+      <h1>Find a safe place<br>near <em>you.</em></h1>
+      <p>Explore shelter options, check listed facilities, and find the support you need after an emergency.</p>
+      <div class="hero-search">
+        <span class="search-icon">⌕</span><input id="locationSearch" type="search" placeholder="Enter area, city or PIN code" aria-label="Search by area, city or PIN code">
+        <button id="searchBtn" class="primary-btn">Search</button>
+      </div>
+      <button id="locateBtn" class="location-btn"><span>◎</span> Use my current location</button>
+      <p id="locationMessage" class="location-message" aria-live="polite"></p>
+      <div class="trust-line"><span>✓</span> Simple information. Clear options. Help finding a place to stay.</div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div>
+      <div class="art-card"><div class="art-house">⌂</div><div><strong>A safer next step</strong><small>Find shelter options around you</small></div><span class="art-check">✓</span></div>
+      <div class="floating-chip chip-one"><span>♡</span> Care & support</div><div class="floating-chip chip-two"><span>⌖</span> Nearby options</div>
+    </div>
+  </section>
+
+  <section class="section find-section" id="find">
+    <div class="section-heading"><div><div class="eyebrow">SHELTER DIRECTORY</div><h2>Explore shelter options</h2><p>Compare availability, costs and essential facilities before you travel.</p></div><div class="result-count" id="resultCount">10 places listed</div></div>
+    <div class="notice"><span class="notice-icon">ⓘ</span><div><strong>Availability can change quickly</strong><p>This demo uses sample listings, not a verified live shelter feed. Please call the shelter to confirm beds, services and opening hours before travelling.</p></div></div>
+    <div class="filter-bar">
+      <label class="filter-search"><span>⌕</span><input id="inlineSearch" type="search" placeholder="Search shelters or locations..."></label>
+      <select id="typeFilter" aria-label="Filter by price"><option value="all">All prices</option><option value="free">Free shelters</option><option value="paid">Paid shelters</option></select>
+      <select id="availabilityFilter" aria-label="Filter by availability"><option value="all">Any availability</option><option value="available">Available beds</option><option value="limited">Limited availability</option></select>
+      <select id="resourceFilter" aria-label="Filter by resource"><option value="all">Any resource</option><option value="water">Drinking water</option><option value="food">Food</option><option value="medical">First aid</option><option value="bedding">Beds & blankets</option><option value="charging">Charging</option><option value="accessible">Accessible facilities</option></select>
+      <button class="reset-btn" id="resetFilters">Reset</button>
+    </div>
+    <div id="activeLocation" class="active-location" hidden></div>
+    <div id="shelterGrid" class="shelter-grid" aria-live="polite"></div>
+    <div id="emptyState" class="empty-state" hidden><div class="empty-icon">⌕</div><h3>No matching shelters found</h3><p>Try another area or remove one or more filters. This directory may not include every shelter.</p><button id="emptyReset" class="primary-btn">Clear filters</button></div>
+  </section>
+
+  <section class="resources-section" id="resources"><div class="section resource-layout"><div class="resource-intro"><div class="eyebrow">ESSENTIAL SUPPORT</div><h2>What might you need?</h2><p>Facilities vary by location. Use these quick filters to find shelters listing the support you are looking for.</p></div><div class="resource-grid">
+    <button class="resource-tile" data-resource="water"><span class="resource-icon">♧</span><strong>Water & food</strong><small>Basic supplies</small></button>
+    <button class="resource-tile" data-resource="medical"><span class="resource-icon">✚</span><strong>First aid</strong><small>Basic medical support</small></button>
+    <button class="resource-tile" data-resource="bedding"><span class="resource-icon">▱</span><strong>Beds & blankets</strong><small>Rest and shelter</small></button>
+    <button class="resource-tile" data-resource="charging"><span class="resource-icon">ϟ</span><strong>Power & charging</strong><small>Keep devices powered</small></button>
+    <button class="resource-tile" data-resource="accessible"><span class="resource-icon">♿</span><strong>Accessibility</strong><small>Step-free access listed</small></button>
+    <button class="resource-tile" data-resource="baby"><span class="resource-icon">♡</span><strong>Baby care</strong><small>Supplies where listed</small></button>
+  </div></div></section>
+
+  <section class="emergency-section section" id="help"><div class="emergency-mark">!</div><div><div class="eyebrow">IN IMMEDIATE DANGER?</div><h2>Your safety comes first.</h2><p>Move away from immediate hazards if it is safe to do so. Follow official evacuation instructions and contact local emergency services if you need urgent help.</p><small>In India, call <strong>112</strong> for emergency assistance. Use this only where the service is available to you.</small></div><a class="emergency-call" href="tel:112">Call 112 <span>↗</span></a></section>
+</main>
+<footer><a class="brand footer-brand" href="#home"><span class="brand-icon">⌂</span><span>Safe Haven</span></a><p>Helping you explore shelter options when it matters.</p><div class="footer-note">Demonstration directory · Confirm all details directly with shelter providers.</div></footer>
+<div id="modalBackdrop" class="modal-backdrop" hidden><section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button id="closeModal" class="modal-close" aria-label="Close details">×</button><div id="modalContent"></div></section></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="js/shelters.js"></script><script src="js/app.js"></script>
+</body></html>
